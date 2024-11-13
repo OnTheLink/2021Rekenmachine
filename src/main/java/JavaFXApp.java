@@ -16,6 +16,10 @@ import static javafx.scene.input.MouseEvent.MOUSE_CLICKED;
 
 public class JavaFXApp extends Application {
 
+    private PlusComputation plusComputation = new PlusComputation ();
+    private MultiplyComputation multiplyComputation = new MultiplyComputation ();
+    private DivideComputation divideComputation = new DivideComputation ();
+
     Pane rootPane;
     TextField txtResult;
     TextField txtNumber1;
@@ -29,18 +33,6 @@ public class JavaFXApp extends Application {
         return Integer.parseInt (textField.getText ());
     }
 
-    protected int computeAdd (int number1, int number2) {
-        return number1 + number2;
-    }
-
-    protected int computeMultiply (int number1, int number2) {
-        return 0;
-    }
-
-    protected int computeDivide (int number1, int number2) {
-        return 0;
-    }
-
     private void compute (String operator) {
 
         int result;
@@ -49,13 +41,13 @@ public class JavaFXApp extends Application {
 
         switch (operator) {
             case PLUS:
-                result = computeAdd (number1, number2);
+                result = plusComputation.compute (number1, number2);
                 break;
             case MULTIPLY:
-                result = computeMultiply (number1, number2);
+                result = multiplyComputation.compute (number1, number2);
                 break;
             case DIVIDE:
-                result = computeDivide (number1, number2);
+                result = divideComputation.compute (number1, number2);
                 break;
             default:
                 result = 0;
@@ -159,5 +151,29 @@ public class JavaFXApp extends Application {
 
     public static void main(String[] args) {
         launch (args);
+    }
+
+    public MultiplyComputation getMultiplyComputation() {
+        return multiplyComputation;
+    }
+
+    public void setMultiplyComputation(MultiplyComputation multiplyComputation) {
+        this.multiplyComputation = multiplyComputation;
+    }
+
+    public DivideComputation getDivideComputation() {
+        return divideComputation;
+    }
+
+    public void setDivideComputation(DivideComputation divideComputation) {
+        this.divideComputation = divideComputation;
+    }
+
+    public PlusComputation getPlusComputation() {
+        return plusComputation;
+    }
+
+    public void setPlusComputation(PlusComputation plusComputation) {
+        this.plusComputation = plusComputation;
     }
 }

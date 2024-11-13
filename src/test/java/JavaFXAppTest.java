@@ -9,24 +9,24 @@ class JavaFXAppTest {
 
     @Test
     void additionTest() {
-        JavaFXApp app = new JavaFXApp();
+        PlusComputation plusComputation = new PlusComputation();
 
         // Check positive numbers
-        assertEquals(3, app.computeAdd(1, 2));
-        assertEquals(5, app.computeAdd(2, 3));
-        assertEquals(7, app.computeAdd(3, 4));
+        assertEquals(3, plusComputation.compute(1, 2));
+        assertEquals(5, plusComputation.compute(2, 3));
+        assertEquals(7, plusComputation.compute(3, 4));
 
         // Check negative numbers
-        assertEquals(-1, app.computeAdd(-1, 0));
-        assertEquals(-3, app.computeAdd(-1, -2));
-        assertEquals(-5, app.computeAdd(-2, -3));
+        assertEquals(-1, plusComputation.compute(-1, 0));
+        assertEquals(-3, plusComputation.compute(-1, -2));
+        assertEquals(-5, plusComputation.compute(-2, -3));
 
         // Check mixed numbers
-        assertEquals(0, app.computeAdd(-1, 1));
-        assertEquals(1, app.computeAdd(-1, 2));
-        assertEquals(2, app.computeAdd(1, 1));
+        assertEquals(0, plusComputation.compute(-1, 1));
+        assertEquals(1, plusComputation.compute(-1, 2));
+        assertEquals(2, plusComputation.compute(1, 1));
 
         // Check zero
-        assertEquals(1, app.computeAdd(1, 0));
+        assertEquals(1, plusComputation.compute(1, 0));
     }
 }
