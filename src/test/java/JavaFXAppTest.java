@@ -6,4 +6,9 @@ class JavaFXAppTest {
     void aDummyTest() {
         assertEquals(0,0);
     }
+
+    @Test
+    void computeMultiplyTest() {
+        assertEquals(12, new JavaFXApp().computeMultiply(3,4));
+    }
 }
